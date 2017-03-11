@@ -1,4 +1,45 @@
-1. 
-2.
-3.
-4. 
+1. Coonhounds, Donkey, Greyhounds, Horse, Parrot 
+2. Dogs, Horse
+3. Bear cubs, Briards(dogs), Horse, Mockingbird 
+4. Parrot
+5. Dogs
+6. Alligator, silkworm
+7. Cocks, Horse, Parrot
+8. Tiger cubs
+9. Cow, Goat
+10. Canary, Horse, Italian Greyhounds
+11. 
+12. Horse
+13. Ponies
+14. Brids (Japanese), Dog
+15. Dogs, Eagle
+16. Cats, Dogs, Goats, Horse, Rabbit, Turkey
+17. Mice (white)
+18. Dogs, Horses, Ponies 
+19. Cats, Dogs
+20. Dog, Horse
+21. Horse, Rabbit
+22. Dogs, Mockingbirds
+23. Dog, Goat, Opossums
+24. 
+25. Kittens, Parrot, Roosters 
+26. Badger, Bear, Cats, Dogs, Guinea Pigs, Hen, Hyena, Lizard, Macaw, Owl, Pekingese, Pig, Ponies, Rooster, Rabbit, Rat, Snake
+27. Cows, Dog
+28. Cats, Dogs, Ram
+29. Canary, Dogs
+30. Bears, Bobcat, Canaries, Cat, Dogs, Donkey, Duiker, Goose, Lion cubs, Hippopotamus, Wallaby
+31. Alligators, Dogs
+32. Dogs
+33. Dogs
+34. Dogs
+35. Canary, Cat, Dogs, Hamster, Horse, Parakeets, Ponies, Rabbit
+36. Dog, Hamsters, Lovebirds
+37. Dogs
+38. Cat, Dogs
+39. Cat, Dogs
+40. Dogs, Horses
+41. Dogs
+42. Cat, Dog
+43. Cat, Cow, Dogs
+44. Dogs
+45.    
