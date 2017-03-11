@@ -8,11 +8,11 @@
 	</welcome-file-list>
 
 	<servlet>
-		<servlet-name>CartServlet</servlet-name>
-		<servlet-class>servlets.CartServlet</servlet-class>
+		<servlet-name>PresServlet</servlet-name>
+		<servlet-class>servlets.PresServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>CartServlet</servlet-name>
+		<servlet-name>PresServlet</servlet-name>
 		<url-pattern>*.do</url-pattern>
 	</servlet-mapping>
 </web-app>
