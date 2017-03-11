@@ -17,7 +17,7 @@
 <div id="output-main" class="container-fluid">
     <div class="row" id="row1">
         <div class="col-md-3" id="back-button">
-            <a href="#">&#9756;</a>
+            <a href="#">&#9756;</a> <%-- logic here needs point to ${Pres.name} +1 --%> 
         </div>
         <div class="col-md-6">
             <div class="card" style="width: 20rem;">
@@ -32,7 +32,7 @@
             </div>
         </div>
         <div class="col-md-3" id="forward-button">
-            <a href="#">&#9758;</a>
+            <a href="#">&#9758;</a> <%-- logic here needs point to ${Pres.name} -1 --%>
         </div>
     </div>
 </div>
