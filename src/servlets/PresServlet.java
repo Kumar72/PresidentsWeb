@@ -40,7 +40,7 @@ public class PresServlet extends HttpServlet {
 
 	@Override
 	public void init() throws ServletException {
-		start = new presStart();
+		start = new PresDAOImpl();
 		// presStart calls method from DAO that starts instantiation of map and rest of operations
 	}
 
