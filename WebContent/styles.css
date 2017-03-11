@@ -16,13 +16,16 @@ h1, h2 {
     text-align: center;
 }
 
+#output-main {
+    background-color: #1B4573;
+    background-size: cover;
+    height: 100vh;
+    text-align: center;
+}
+
 .custom-select, input {
     width: 50%;
     color: black;
-}
-
-#row2 {
-    color: white;
 }
 
 #back-button, #forward-button {
@@ -37,4 +40,40 @@ a {
 a:hover {
     color: red;
     text-decoration: none;
+}
+
+img {
+    max-width: auto;
+    height: 300px;
+}
+
+.card {
+    margin: 0 180px;
+    text-align: left;
+}
+
+.card ul {
+    min-width: 400px;
+}
+
+.card li {
+    list-style-type: none;
+    color: black;
+}
+
+.card li h1, .card li h3{
+    color: white;
+    background-color: #8f0a0a;
+    margin: 0 0;
+    padding: 0 0;
+}
+
+.portrait {
+    margin-top: 45px;
+    border: 2px solid #EDB605;
+    min-width: 400px;
+}
+
+#row1 {
+    padding-top: 50px;
 }
