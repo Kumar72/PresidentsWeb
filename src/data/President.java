@@ -11,7 +11,9 @@ public class President {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("President [firstName=");
+		builder.append("President [termNumber=");
+		builder.append(termNumber);
+		builder.append(", firstName=");
 		builder.append(firstName);
 		builder.append(", middleName=");
 		builder.append(middleName);
@@ -19,14 +21,12 @@ public class President {
 		builder.append(lastName);
 		builder.append(", party=");
 		builder.append(party);
-		builder.append(", fact=");
-		builder.append(fact);
-		builder.append(", termNumber=");
-		builder.append(termNumber);
 		builder.append(", startYear=");
 		builder.append(startYear);
 		builder.append(", endYear=");
 		builder.append(endYear);
+		builder.append(", fact=");
+		builder.append(fact);
 		builder.append("]");
 		return builder.toString();
 	}
@@ -75,8 +75,6 @@ public class President {
 	public void setEndYear(int endYear) {
 		this.endYear = endYear;
 	}
-	
-	
 	
 	
 }
