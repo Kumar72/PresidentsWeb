@@ -22,19 +22,19 @@
     <div class="row" id="row1">
         <div class="col-md-3" id="back-button">
         <c:choose>
-        	<c:when test="{PresData[value]} == 1">
-            <a href="Output/{PresData[45]}.jsp">&#9756;</a></c:when>
+        	<c:when test="${presData[term]}==0">
+            <a href="Output.jsp?value=${presData[44]}">&#9756;</a></c:when>
             <c:otherwise>
-            <a href="Output/{PresData[value - 1].jsp}">&#9756;</a></c:otherwise></c:choose>
+            <a href="Output.jsp" value="${presData[term-2]}">&#9756;</a></c:otherwise></c:choose>
         </div>
         <div class="col-md-6">
             <div class="card" style="width: 20rem;">
                 <ul class="list-group list-group-flush">
-                    <img class="portrait" src="./PresPics/${presData[value].photo}" alt="president pic"> <!-- Picture -->
-                    <li><h1>${presData[value].firstName} ${presData[value].lastName}</h1></li>
-                    <li><h3>${PresData[value].termYear}</h3></li>
-                    <li class="list-group-item">${PresData[value].party}</li> <!-- Facts -->
-                    <li class="list-group-item">${PresData[value].fact}</li> <!-- Pets -->
+                    <img class="portrait" src="./PresPics/${presData[term-1].photo}" alt="president pic"> <!-- Picture -->
+                    <li><h1>${presData[term-1].firstName} ${presData[term-1].lastName}</h1></li>
+                    <li><h3>${presData[term-1].termYear}</h3></li>
+                    <li class="list-group-item">${presData[term-1].party}</li> <!-- party -->
+                    <li class="list-group-item">${presData[term-1].fact}</li> <!-- fact -->
                 </ul>
 
             </div>
