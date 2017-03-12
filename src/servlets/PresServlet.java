@@ -19,9 +19,9 @@ public class PresServlet extends HttpServlet {
 	
 	@Override
 	public void init() throws ServletException {
-		ServletContext context = getServletContext();
+		ServletContext context = getServletContext(); //instantiate ServletContext to allow access to WebContent
 		start = new PresDAOImpl(context);
-		// start calls method from DAO that starts instantiation of main data object and rest of operations
+		// start instantiation of main data object and rest of operations
 	}
 	
 	@Override
@@ -29,9 +29,9 @@ public class PresServlet extends HttpServlet {
 		Map<Integer, President> presData;
 		
 			start.loadPresidentsFromFile();
-//			presData = start.getHashMapFromArrayList();
-//			req.setAttribute("term", presData); // this passes session's data to output.jsp
-		// instantiates defensive copy of database in List presData to be used in session.
+			presData = start.getHashMapFromArrayList();
+			req.setAttribute("term", presData); // this passes session's data to output.jsp
+//		 instantiates defensive copy of database in List presData to be used in session.
 
 		HttpSession session = req.getSession(); // gets session id if exists
 		if ( start == null ) { // if new session, assign session id
