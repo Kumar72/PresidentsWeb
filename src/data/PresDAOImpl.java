@@ -74,7 +74,7 @@ public class PresDAOImpl implements PresDAO {
 			presidents.add(input[0]);
 		}
 		for (int i = 0; i < presArray.size() & i < presidents.size(); i++) {
-			presArray.get(i).setFact(presidents.get(i));
+			presArray.get(i).setPhoto(presidents.get(i));
 		}
 		pres.close();
 		return presidents;
