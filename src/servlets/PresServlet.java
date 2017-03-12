@@ -28,14 +28,15 @@ public class PresServlet extends HttpServlet {
 		List<President> data = new ArrayList<>();
 		data = start.getPicturePath();
 		req.setAttribute("presData", data);
-		req.getRequestDispatcher("/test.jsp").forward(req, resp);
+		req.getRequestDispatcher("/display.jsp").forward(req, resp);
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		super.doPost(req, resp);
-		
+		List<President> data = new ArrayList<>();
+		data = start.getPicturePath();
+		req.setAttribute("presData", data);
+		req.getRequestDispatcher("/Output.jsp").forward(req, resp);	
 	}
 	
 	

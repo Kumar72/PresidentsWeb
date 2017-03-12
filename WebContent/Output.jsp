@@ -21,17 +21,20 @@
 <div id="output-main" class="container-fluid">
     <div class="row" id="row1">
         <div class="col-md-3" id="back-button">
-            <a href="#">&#9756;</a> <%-- logic here needs point to ${Pres.term} +1 --%> 
-            <%-- if ${Pres.term == 1} then href="$Pres.term[45]} --%>>
+        <c:choose>
+        	<c:when test="{PresData[value]} == 1">
+            <a href="Output/{PresData[45]}.jsp">&#9756;</a></c:when>
+            <c:otherwise>
+            <a href="Output/{PresData[value - 1].jsp}">&#9756;</a></c:otherwise></c:choose>
         </div>
         <div class="col-md-6">
             <div class="card" style="width: 20rem;">
                 <ul class="list-group list-group-flush">
-                    <img class="portrait" src="${term. }" alt="president pic"> <!-- Picture -->
-                    <li><h1>${Pres.name}</h1></li>
-                    <li><h3>${Pres.years}</h3></li>
-                    <li class="list-group-item">${term.}</li> <!-- Facts -->
-                    <li class="list-group-item">${pets}</li> <!-- Pets -->
+                    <img class="portrait" src="./PresPics/${presData[value].photo}" alt="president pic"> <!-- Picture -->
+                    <li><h1>${presData[value].firstName} ${presData[value].lastName}</h1></li>
+                    <li><h3>${PresData[value].termYear}</h3></li>
+                    <li class="list-group-item">${PresData[value].party}</li> <!-- Facts -->
+                    <li class="list-group-item">${PresData[value].fact}</li> <!-- Pets -->
                 </ul>
 
             </div>
