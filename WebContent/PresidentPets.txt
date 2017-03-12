@@ -21,7 +21,7 @@
 21. Horse, Rabbit
 22. Dogs, Mockingbirds
 23. Dog, Goat, Opossums
-24. 
+24. Dogs, Mockingbirds
 25. Kittens, Parrot, Roosters 
 26. Badger, Bear, Cats, Dogs, Guinea Pigs, Hen, Hyena, Lizard, Macaw, Owl, Pekingese, Pig, Ponies, Rooster, Rabbit, Rat, Snake
 27. Cows, Dog
