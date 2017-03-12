@@ -3,7 +3,16 @@ package data;
 public class President {
 	private String firstName, middleName, lastName, party, termYear,fact;
 	private int termNumber;
+	private String photo;
 	
+	public String getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
