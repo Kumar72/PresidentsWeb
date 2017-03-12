@@ -8,6 +8,6 @@ public interface PresDAO {
 	public List<President> getPresidentFactFromFile();
 	public Map<Integer, President> getHashMapFromArrayList();
 	public President getPresidentByTerm(Integer term);
-	public List<String>getPicturePath();
+	public List<President>getPicturePath();
 		
 }

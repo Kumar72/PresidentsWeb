@@ -81,7 +81,7 @@ public class PresDAOImpl implements PresDAO {
 
 
 	@Override
-	public List<String> getPicturePath() {
+	public List<President> getPicturePath() {
 		List<President> presArray = loadPresidentsFromFile();
 		List<String> presidents = new ArrayList<>();
 		try (BufferedReader pres = new BufferedReader(new InputStreamReader(path))) {
@@ -96,7 +96,7 @@ public class PresDAOImpl implements PresDAO {
 		} catch (IOException e){
 			System.out.println(e);
 		}
-		return presidents;
+		return presArray;
 	}
 
 }

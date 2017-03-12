@@ -17,15 +17,12 @@
 <body>
 
 <h1>HELLLLLLO</h1>
- 
-<%-- <c:out value="${term[1].PresData.fact}"></c:out>
-<c:out value="${term['1'].PresData.fact}"></c:out> --%>
 
+<%-- <c:out items="${presData[0]}" var="value"></c:out> --%>
+<%-- <h1><c:out value="${value}"></c:out></h1></c:forEach>
+ --%>
 
-<c:forEach var="test" items="${data}">
-	<h1>Country: ${data.key}  - Capital: ${data.value}</h1>
-</c:forEach>
-
+<c:out value="${presData[0].fact}"></c:out>
 
 </body>
 </html>
