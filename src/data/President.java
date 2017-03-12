@@ -1,13 +1,9 @@
 package data;
 
 public class President {
-	private String firstName, middleName, lastName, party, fact;
-	private int termNumber, startYear, endYear;
+	private String firstName, middleName, lastName, party, termYear;
+	private int termNumber;
 	
-	
-	public String getFirstName() {
-		return firstName;
-	}
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -21,14 +17,32 @@ public class President {
 		builder.append(lastName);
 		builder.append(", party=");
 		builder.append(party);
-		builder.append(", startYear=");
-		builder.append(startYear);
-		builder.append(", endYear=");
-		builder.append(endYear);
-		builder.append(", fact=");
-		builder.append(fact);
+		builder.append(", termYear=");
+		builder.append(termYear);
 		builder.append("]");
 		return builder.toString();
+	}
+	
+	public President(int tNumb, String fName, String mName, String lName, String tYear, String party ){
+	termNumber = tNumb;
+	firstName = fName;
+	middleName = mName;
+	lastName = lName;
+	termYear = tYear;
+	party = party; 
+		
+	}
+	
+	public String getTermYear() {
+		return termYear;
+	}
+
+	public void setTermYear(String termYear) {
+		this.termYear = termYear;
+	}
+
+	public String getFirstName() {
+		return firstName;
 	}
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
@@ -51,30 +65,13 @@ public class President {
 	public void setParty(String party) {
 		this.party = party;
 	}
-	public String getFact() {
-		return fact;
-	}
-	public void setFact(String fact) {
-		this.fact = fact;
-	}
 	public int getTermNumber() {
 		return termNumber;
 	}
 	public void setTermNumber(int termNumber) {
 		this.termNumber = termNumber;
 	}
-	public int getStartYear() {
-		return startYear;
-	}
-	public void setStartYear(int startYear) {
-		this.startYear = startYear;
-	}
-	public int getEndYear() {
-		return endYear;
-	}
-	public void setEndYear(int endYear) {
-		this.endYear = endYear;
-	}
+
 	
 	
 }
