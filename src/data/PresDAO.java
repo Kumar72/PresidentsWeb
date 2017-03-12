@@ -4,10 +4,10 @@ import java.util.*;
 
 public interface PresDAO {
 	
-	public List<Presidents> loadPresidentsFromFile() throws Exception;
-	public List<Presidents> getPresidentFactFromFile() throws Exception;
-	public Map<Integer, Presidents> getHashMapFromArrayList()throws Exception;
-	public Presidents getPresidentByTerm(Integer term)throws Exception;
+	public List<President> loadPresidentsFromFile() throws Exception;
+	public List<President> getPresidentFactFromFile() throws Exception;
+	public Map<Integer, President> getHashMapFromArrayList()throws Exception;
+	public President getPresidentByTerm(Integer term)throws Exception;
 
 		
 }

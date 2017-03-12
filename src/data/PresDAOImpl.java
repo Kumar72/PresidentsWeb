@@ -7,11 +7,11 @@ import java.util.*;
 public class PresDAOImpl implements PresDAO {
 	private File files = new File("presidents.csv");
 	private File fact = new File("PresidentFact.txt");
-	private List<Presidents> presArray = new ArrayList<>();
-	private HashMap<Integer, Presidents> president = new HashMap<Integer, Presidents>();
+	private List<President> presArray = new ArrayList<>();
+	private HashMap<Integer, President> president = new HashMap<Integer, President>();
 
 	@Override
-	public List<Presidents> loadPresidentsFromFile() throws Exception {
+	public List<President> loadPresidentsFromFile() throws Exception {
 		BufferedReader pres = new BufferedReader(new FileReader(files));
 		String line;
 		while ((line = pres.readLine()) != null) {
@@ -22,15 +22,15 @@ public class PresDAOImpl implements PresDAO {
 			String lastName = input[3];
 			String termYears = input[4];
 			String politicalParty = input[5];
-			presArray.add(new Presidents(term, firstName, middleName, lastName, termYears, politicalParty));
+			presArray.add(new President(term, firstName, middleName, lastName, termYears, politicalParty));
 		}
 		pres.close();
 		return presArray;
 	}
 
 	@Override
-	public List<Presidents> getPresidentFactFromFile() throws Exception {
-		List<Presidents> presArray = loadPresidentsFromFile();
+	public List<President> getPresidentFactFromFile() throws Exception {
+		List<President> presArray = loadPresidentsFromFile();
 		List<String> facts = new ArrayList<>();
 		BufferedReader pres = new BufferedReader(new FileReader(fact));
 		String line;
@@ -45,17 +45,17 @@ public class PresDAOImpl implements PresDAO {
 		return presArray;
 	}
 	@Override
-	public HashMap<Integer, Presidents> getHashMapFromArrayList() throws Exception{
-		List<Presidents> presArray = getPresidentFactFromFile();
-		for (Presidents presidents : presArray) {
+	public HashMap<Integer, President> getHashMapFromArrayList() throws Exception{
+		List<President> presArray = getPresidentFactFromFile();
+		for (President presidents : presArray) {
 			president.put(presidents.getTerm(), presidents);
 		}
 		return president;
 	}
 	
 	@Override
-	public Presidents getPresidentByTerm(Integer term) throws Exception {
-		Map<Integer, Presidents> presTerm = getHashMapFromArrayList();
+	public President getPresidentByTerm(Integer term) throws Exception {
+		Map<Integer, President> presTerm = getHashMapFromArrayList();
 	
 		return presTerm.get(term);
 	}
