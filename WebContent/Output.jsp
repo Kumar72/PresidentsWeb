@@ -23,7 +23,7 @@
         <div class="col-md-6">
             <div class="card" style="width: 20rem;">
                 <ul class="list-group list-group-flush">
-                    <img class="portrait" src="${Pres.pic[ }" alt="">
+                    <img class="portrait" src="${Pres.term[ }" alt="">
                     <li><h1>${Pres.name}</h1></li>
                     <li><h3>${Pres.years}</h3></li>
                     <li class="list-group-item">${facts}</li>

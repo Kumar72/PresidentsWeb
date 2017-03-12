@@ -46,12 +46,11 @@ public class PresServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		List<President> presData = start.PresDAOImpl()session.getAttribute("president"); // instantiates defensive copy of database
 		HttpSession session = req.getSession(); // gets session id if exists	
+		Map<Integer, President> presData = (Map<Integer, President>)session.getAttribute("term"); // instantiates defensive copy of database
 		
-		HttpSession session = req.getSession(); // gets session id if exists
 		if ( start == null ) { // if new session, assign session id
-			presData = new ArrayList<>();
+			presData = new HashMap<>();
 			session.setAttribute("president", presData); 
 		}
 		req.getRequestDispatcher("/Output.jsp").forward(req, resp);
