@@ -22,7 +22,7 @@
             <div class="row">
             
                 <div class="col-md-3" id="back-button"> <!-- back-button -->
-                    <a href="test.jsp">&#9756;</a>
+                  
                 </div>
             
                 <div class="col-md-6">
@@ -78,7 +78,6 @@
                     </form>
                 </div>
                 <div class="col-md-3" id="forward-button">
-                    <a href="#">&#9758;</a>
                 </div>
             </div>
         </div>

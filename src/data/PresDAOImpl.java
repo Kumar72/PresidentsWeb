@@ -46,27 +46,27 @@ public class PresDAOImpl implements PresDAO {
 		return presArray;
 	}
 
-	@Override
-	public List<President> getPresidentFactFromFile() {
-		List<President> presArray = loadPresidentsFromFile();
-		List<String> facts = new ArrayList<>();
-		try (BufferedReader pres = new BufferedReader(new InputStreamReader(fact))){
-		String line;
-		while ((line = pres.readLine()) != null) {
-			String[] input = line.split("\\r");
-			facts.add(input[0]);
-		}
-		for (int i = 0; i < presArray.size() & i < facts.size(); i++) {
-			presArray.get(i).setFact(facts.get(i));
-		}
-		} catch (IOException e) {
-			System.out.println(e);
-		}
-		return presArray;
-	}
+//	@Override
+//	public List<President> getPresidentFactFromFile() {
+//		List<President> presArray = loadPresidentsFromFile();
+//		List<String> facts = new ArrayList<>();
+//		try (BufferedReader pres = new BufferedReader(new InputStreamReader(fact))){
+//		String line;
+//		while ((line = pres.readLine()) != null) {
+//			String[] input = line.split("\\r");
+//			facts.add(input[0]);
+//		}
+//		for (int i = 0; i < presArray.size() & i < facts.size(); i++) {
+//			presArray.get(i).setFact(facts.get(i));
+//		}
+//		} catch (IOException e) {
+//			System.out.println(e);
+//		}
+//		return presArray;
+//	}
 	@Override
 	public HashMap<Integer, President> getHashMapFromArrayList(){
-		List<President> presArray = getPresidentFactFromFile();
+		// List<President> presArray = getPresidentFactFromFile();
 		for (President presidents : presArray) {
 			president.put(presidents.getTermNumber(), presidents);
 		}
@@ -83,15 +83,29 @@ public class PresDAOImpl implements PresDAO {
 	@Override
 	public List<President> getPicturePath() {
 		List<President> presArray = loadPresidentsFromFile();
-		List<String> presidents = new ArrayList<>();
+		List<String> facts = new ArrayList<>();
+		try (BufferedReader pres = new BufferedReader(new InputStreamReader(fact))){
+		String line;
+		while ((line = pres.readLine()) != null) {
+			String[] input = line.split("\\r");
+			facts.add(input[0]);
+		}
+		for (int i = 0; i < presArray.size() & i < facts.size(); i++) {
+			presArray.get(i).setFact(facts.get(i));
+		}
+		} catch (IOException e) {
+			System.out.println(e);
+		}
+		List<String> photo = new ArrayList<>();
 		try (BufferedReader pres = new BufferedReader(new InputStreamReader(path))) {
 		String line;
 		while ((line = pres.readLine()) != null) {
 			String[] input = line.split("\\r");
-			presidents.add(input[0]);
+			photo.add(input[0]);
 		}
-		for (int i = 0; i < presArray.size() & i < presidents.size(); i++) {
-			presArray.get(i).setPhoto(presidents.get(i));
+		for (int i = 0; i < presArray.size() & i < photo.size(); i++) {
+			
+			presArray.get(i).setPhoto(photo.get(i));
 		}
 		} catch (IOException e){
 			System.out.println(e);
