@@ -9,6 +9,8 @@ public class PresDAOImpl implements PresDAO {
 	private File fact = new File("PresidentFact.txt");
 	private List<President> presArray = new ArrayList<>();
 	private HashMap<Integer, President> president = new HashMap<Integer, President>();
+	
+	public PresDAOImpl(){};
 
 	@Override
 	public List<President> loadPresidentsFromFile() throws Exception {
@@ -21,8 +23,8 @@ public class PresDAOImpl implements PresDAO {
 			String middleName = input[2];
 			String lastName = input[3];
 			String termYears = input[4];
-			String politicalParty = input[5];
-			presArray.add(new President(term, firstName, middleName, lastName, termYears, politicalParty));
+			String party = input[5];
+			presArray.add(new President(term, firstName, middleName, lastName, termYears, party));
 		}
 		pres.close();
 		return presArray;
