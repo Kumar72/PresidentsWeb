@@ -50,7 +50,7 @@ public class PresDAOImpl implements PresDAO {
 	public HashMap<Integer, President> getHashMapFromArrayList() throws Exception{
 		List<President> presArray = getPresidentFactFromFile();
 		for (President presidents : presArray) {
-			president.put(presidents.getTerm(), presidents);
+			president.put(presidents.getTermNumber(), presidents);
 		}
 		return president;
 	}

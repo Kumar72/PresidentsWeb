@@ -1,7 +1,7 @@
 package data;
 
 public class President {
-	private String firstName, middleName, lastName, party, termYear;
+	private String firstName, middleName, lastName, party, termYear,fact;
 	private int termNumber;
 	
 	@Override
@@ -23,13 +23,21 @@ public class President {
 		return builder.toString();
 	}
 	
+	public String getFact() {
+		return fact;
+	}
+
+	public void setFact(String fact) {
+		this.fact = fact;
+	}
+
 	public President(int tNumb, String fName, String mName, String lName, String tYear, String party ){
 	termNumber = tNumb;
 	firstName = fName;
 	middleName = mName;
 	lastName = lName;
 	termYear = tYear;
-	party = party; 
+	this.party = party; 
 		
 	}
 	
