@@ -17,12 +17,13 @@
 <div id="output-main" class="container-fluid">
     <div class="row" id="row1">
         <div class="col-md-3" id="back-button">
-            <a href="#">&#9756;</a> <%-- logic here needs point to ${Pres.name} +1 --%> 
+            <a href="#">&#9756;</a> <%-- logic here needs point to ${Pres.term} +1 --%> 
+            <%-- if ${Pres.term == 1} then href="$Pres.term[45]} --%>>
         </div>
         <div class="col-md-6">
             <div class="card" style="width: 20rem;">
                 <ul class="list-group list-group-flush">
-                    <img class="portrait" src="http://www.metmuseum.org/toah/images/hb/hb_07.160_av1.jpg" alt="">
+                    <img class="portrait" src="${Pres.pic[ }" alt="">
                     <li><h1>${Pres.name}</h1></li>
                     <li><h3>${Pres.years}</h3></li>
                     <li class="list-group-item">${facts}</li>
@@ -32,7 +33,7 @@
             </div>
         </div>
         <div class="col-md-3" id="forward-button">
-            <a href="#">&#9758;</a> <%-- logic here needs point to ${Pres.name} -1 --%>
+            <a href="#">&#9758;</a> <%-- logic here needs point to ${Pres.term} -1 --%>
         </div>
     </div>
 </div>

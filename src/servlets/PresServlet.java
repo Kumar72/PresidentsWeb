@@ -2,7 +2,9 @@ package servlets;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -24,13 +26,19 @@ public class PresServlet extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		List<President> presData = start.getClass(); // instantiates defensive copy of database in List presData to be used in session.
-		req.setAttribute("president", presData); // this passes session's data to output.jsp
+		Map<Integer, President> presData;
+		try {
+			presData = start.getHashMapFromArrayList();
+			req.setAttribute("term", presData); // this passes session's data to output.jsp
+		} catch (Exception e) {
+			System.out.println("File Not Found. ");
+			e.printStackTrace();
+		} // instantiates defensive copy of database in List presData to be used in session.
 
 		HttpSession session = req.getSession(); // gets session id if exists
 		if ( start == null ) { // if new session, assign session id
-			presData = new ArrayList<>();
-			session.setAttribute("president", presData); 
+			presData = new HashMap<>();
+			session.setAttribute("term", presData); 
 		}
 		req.getRequestDispatcher("/display.jsp").forward(req, resp);
 	}
@@ -38,7 +46,7 @@ public class PresServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		List<President> presData = start.getClass()session.getAttribute("president"); // instantiates defensive copy of database
+		List<President> presData = start.PresDAOImpl()session.getAttribute("president"); // instantiates defensive copy of database
 		HttpSession session = req.getSession(); // gets session id if exists	
 		
 		HttpSession session = req.getSession(); // gets session id if exists
