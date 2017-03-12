@@ -30,13 +30,13 @@ public class PresServlet extends HttpServlet {
 		
 			start.loadPresidentsFromFile();
 			presData = start.getHashMapFromArrayList();
-			req.setAttribute("term", presData); // this passes session's data to output.jsp
+			req.setAttribute("data", presData); // this passes session's data to output.jsp
 //		 instantiates defensive copy of database in List presData to be used in session.
 
 		HttpSession session = req.getSession(); // gets session id if exists
 		if ( start == null ) { // if new session, assign session id
 			presData = new HashMap<>();
-			session.setAttribute("term", presData); 
+			session.setAttribute("data", presData); 
 		}
 		req.getRequestDispatcher("/display.jsp").forward(req, resp);
 	}
@@ -50,11 +50,9 @@ public class PresServlet extends HttpServlet {
 		
 		if ( start == null ) { // if new session, assign session id
 			presData = new HashMap<>();
-			session.setAttribute("term", presData); 
-			System.out.println("in if");
+			session.setAttribute("data", presData); 
 
 		}
-		System.out.println("sent to test");
 
 		req.getRequestDispatcher("/test.html").forward(req, resp);
 	}

@@ -16,10 +16,15 @@
 </head>
 <body>
 
-<%-- <h1><c:out value="${term.[44]}"></c:out> test test</h1> <!-- trump -->
- --%>
+<h1>HELLLLLLO</h1>
+ 
+<%-- <c:out value="${term[1].PresData.fact}"></c:out>
+<c:out value="${term['1'].PresData.fact}"></c:out> --%>
 
-<c:out value="${pres[1].term}"></c:out>
+
+<c:forEach var="test" items="${data}">
+	<h1>Country: ${data.key}  - Capital: ${data.value}</h1>
+</c:forEach>
 
 
 </body>
