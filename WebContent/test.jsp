@@ -22,7 +22,7 @@
 <%-- <h1><c:out value="${value}"></c:out></h1></c:forEach>
  --%>
 
-<c:out value="${presData[0]}"></c:out>
+<c:out value="${presData[term]}"></c:out>
 
 </body>
 </html>

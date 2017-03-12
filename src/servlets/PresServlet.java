@@ -35,8 +35,10 @@ public class PresServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		List<President> data = new ArrayList<>();
 		data = start.getPicturePath();
+		String term = req.getParameter("presNum");
+		President item = start.getPresidentByTerm(Integer.parseInt(term));
 		req.setAttribute("presData", data);
-		req.getRequestDispatcher("/Output.jsp").forward(req, resp);	
+		req.getRequestDispatcher("/test.jsp").forward(req, resp);	
 	}
 	
 	

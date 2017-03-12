@@ -27,7 +27,7 @@
             
                 <div class="col-md-6">
                     <form class="form" action="start.do" method="post">
-                        <select class="custom-select">
+                        <select name="presNum" class="custom-select">
                     <option value="1">1: George Washington</option>
                     <option value="2">2: John Adams</option>
                     <option value="3">3: Thomas Jefferson</option>
