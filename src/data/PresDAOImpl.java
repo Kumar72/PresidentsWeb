@@ -7,6 +7,7 @@ import java.util.*;
 public class PresDAOImpl implements PresDAO {
 	private File files = new File("presidents.csv");
 	private File fact = new File("PresidentFact.txt");
+	private File path = new File("PicturePath.txt");
 	private List<President> presArray = new ArrayList<>();
 	private HashMap<Integer, President> president = new HashMap<Integer, President>();
 	
@@ -58,13 +59,25 @@ public class PresDAOImpl implements PresDAO {
 	@Override
 	public President getPresidentByTerm(Integer term) throws Exception {
 		Map<Integer, President> presTerm = getHashMapFromArrayList();
-	
 		return presTerm.get(term);
 	}
 
+
 	@Override
-	public String toString() {
-		return "PresDAOImpl [files=" + files + ", fact=" + fact + ", president=" + president + "]";
+	public List<String> getPicturePath() throws Exception {
+		List<President> presArray = loadPresidentsFromFile();
+		List<String> presidents = new ArrayList<>();
+		BufferedReader pres = new BufferedReader(new FileReader(path));
+		String line;
+		while ((line = pres.readLine()) != null) {
+			String[] input = line.split("\\r");
+			presidents.add(input[0]);
+		}
+		for (int i = 0; i < presArray.size() & i < presidents.size(); i++) {
+			presArray.get(i).setFact(presidents.get(i));
+		}
+		pres.close();
+		return presidents;
 	}
 
 }

@@ -8,6 +8,6 @@ public interface PresDAO {
 	public List<President> getPresidentFactFromFile() throws Exception;
 	public Map<Integer, President> getHashMapFromArrayList()throws Exception;
 	public President getPresidentByTerm(Integer term)throws Exception;
-
+	public List<String>getPicturePath() throws Exception;
 		
 }
