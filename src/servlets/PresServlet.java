@@ -17,9 +17,15 @@ public class PresServlet extends HttpServlet {
 	private PresDAOImpl start;
 	
 	@Override
+	public void init() throws ServletException {
+		start = new PresDAOImpl();
+		// start calls method from DAO that starts instantiation of main data object and rest of operations
+	}
+	
+	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		List<President> presData = start.getClass(); // instantiates defensive copy of database
-		req.setAttribute("president", start); // this passes to output.jsp
+		List<President> presData = start.getClass(); // instantiates defensive copy of database in List presData to be used in session.
+		req.setAttribute("president", presData); // this passes session's data to output.jsp
 
 		HttpSession session = req.getSession(); // gets session id if exists
 		if ( start == null ) { // if new session, assign session id
@@ -32,16 +38,15 @@ public class PresServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		List<President> presData = start.getClass()session.getAttribute("president"); // instantiates defensive copy of database
 		HttpSession session = req.getSession(); // gets session id if exists	
-		List<President> presData = start.getClass()session.getAttribute("start"); // instantiates defensive copy of database
-		req.setAttribute("president", presData);
+		
+		HttpSession session = req.getSession(); // gets session id if exists
+		if ( start == null ) { // if new session, assign session id
+			presData = new ArrayList<>();
+			session.setAttribute("president", presData); 
+		}
 		req.getRequestDispatcher("/Output.jsp").forward(req, resp);
-	}
-
-	@Override
-	public void init() throws ServletException {
-		start = new PresDAOImpl();
-		// presStart calls method from DAO that starts instantiation of map and rest of operations
 	}
 
 }
