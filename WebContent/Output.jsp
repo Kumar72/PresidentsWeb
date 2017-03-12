@@ -14,6 +14,10 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:500,900|Quicksand">
 </head>
+<body>
+	
+
+
 <div id="output-main" class="container-fluid">
     <div class="row" id="row1">
         <div class="col-md-3" id="back-button">
@@ -23,10 +27,10 @@
         <div class="col-md-6">
             <div class="card" style="width: 20rem;">
                 <ul class="list-group list-group-flush">
-                    <img class="portrait" src="${Pres.term[ }" alt="president pic"> <!-- Picture -->
+                    <img class="portrait" src="${term. }" alt="president pic"> <!-- Picture -->
                     <li><h1>${Pres.name}</h1></li>
                     <li><h3>${Pres.years}</h3></li>
-                    <li class="list-group-item">${facts}</li> <!-- Facts -->
+                    <li class="list-group-item">${term.}</li> <!-- Facts -->
                     <li class="list-group-item">${pets}</li> <!-- Pets -->
                 </ul>
 

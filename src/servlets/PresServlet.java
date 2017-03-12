@@ -1,11 +1,10 @@
 package servlets;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -20,20 +19,19 @@ public class PresServlet extends HttpServlet {
 	
 	@Override
 	public void init() throws ServletException {
-		start = new PresDAOImpl();
+		ServletContext context = getServletContext();
+		start = new PresDAOImpl(context);
 		// start calls method from DAO that starts instantiation of main data object and rest of operations
 	}
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Map<Integer, President> presData;
-		try {
-			presData = start.getHashMapFromArrayList();
-			req.setAttribute("term", presData); // this passes session's data to output.jsp
-		} catch (Exception e) {
-			System.out.println("File Not Found. ");
-			e.printStackTrace();
-		} // instantiates defensive copy of database in List presData to be used in session.
+		
+			start.loadPresidentsFromFile();
+//			presData = start.getHashMapFromArrayList();
+//			req.setAttribute("term", presData); // this passes session's data to output.jsp
+		// instantiates defensive copy of database in List presData to be used in session.
 
 		HttpSession session = req.getSession(); // gets session id if exists
 		if ( start == null ) { // if new session, assign session id
@@ -48,12 +46,17 @@ public class PresServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		HttpSession session = req.getSession(); // gets session id if exists	
 		Map<Integer, President> presData = (Map<Integer, President>)session.getAttribute("term"); // instantiates defensive copy of database
+		System.out.println("after presData");
 		
 		if ( start == null ) { // if new session, assign session id
 			presData = new HashMap<>();
-			session.setAttribute("president", presData); 
+			session.setAttribute("term", presData); 
+			System.out.println("in if");
+
 		}
-		req.getRequestDispatcher("/Output.jsp").forward(req, resp);
+		System.out.println("sent to test");
+
+		req.getRequestDispatcher("/test.html").forward(req, resp);
 	}
 
 }

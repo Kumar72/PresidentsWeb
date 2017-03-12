@@ -21,9 +21,11 @@
             <h1>Welcome to the Presidents WebApp!</h1>
             <h2>Please select a president by term or just click on the navigation buttons.</h2>
             <div class="row">
-                <div class="col-md-3" id="back-button">
-                    <a href="#">&#9756;</a>
+            
+                <div class="col-md-3" id="back-button"> <!-- back-button -->
+                    <a href="test.jsp">&#9756;</a>
                 </div>
+            
                 <div class="col-md-6">
                     <form class="form" action="start.do" method="post">
                         <select class="custom-select">

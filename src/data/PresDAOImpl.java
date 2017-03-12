@@ -1,22 +1,36 @@
 package data;
 
-import java.io.*;
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.ServletContext;
 
 
 public class PresDAOImpl implements PresDAO {
-	private File files = new File("presidents.csv");
-	private File fact = new File("PresidentFact.txt");
-	private File path = new File("PicturePath.txt");
+	private InputStream files;
+	private InputStream fact;
+	private InputStream path;
 	private List<President> presArray = new ArrayList<>();
 	private HashMap<Integer, President> president = new HashMap<Integer, President>();
+	private ServletContext context;
 	
-	public PresDAOImpl(){};
+	public PresDAOImpl(ServletContext context){
+		this.context = context;
+		files = context.getResourceAsStream("presidents.csv");
+		fact = context.getResourceAsStream("PresidentFact.txt");
+		path = context.getResourceAsStream("PicturePath.txt");
+	};
 
 	@Override
-	public List<President> loadPresidentsFromFile() throws Exception {
-		BufferedReader pres = new BufferedReader(new FileReader(files));
-		String line;
+	public List<President> loadPresidentsFromFile() {
+		try (BufferedReader pres = new BufferedReader(new InputStreamReader(files))) {
+		String line = "";
 		while ((line = pres.readLine()) != null) {
 			String[] input = line.split(",");
 			int term = Integer.parseInt(input[0]);
@@ -26,16 +40,17 @@ public class PresDAOImpl implements PresDAO {
 			String termYears = input[4];
 			String party = input[5];
 			presArray.add(new President(term, firstName, middleName, lastName, termYears, party));
+		}} catch (IOException e) {
+			System.out.println(e);
 		}
-		pres.close();
 		return presArray;
 	}
 
 	@Override
-	public List<President> getPresidentFactFromFile() throws Exception {
+	public List<President> getPresidentFactFromFile() {
 		List<President> presArray = loadPresidentsFromFile();
 		List<String> facts = new ArrayList<>();
-		BufferedReader pres = new BufferedReader(new FileReader(fact));
+		try (BufferedReader pres = new BufferedReader(new InputStreamReader(fact))){
 		String line;
 		while ((line = pres.readLine()) != null) {
 			String[] input = line.split("\\r");
@@ -44,11 +59,13 @@ public class PresDAOImpl implements PresDAO {
 		for (int i = 0; i < presArray.size() & i < facts.size(); i++) {
 			presArray.get(i).setFact(facts.get(i));
 		}
-		pres.close();
+		} catch (IOException e) {
+			System.out.println(e);
+		}
 		return presArray;
 	}
 	@Override
-	public HashMap<Integer, President> getHashMapFromArrayList() throws Exception{
+	public HashMap<Integer, President> getHashMapFromArrayList(){
 		List<President> presArray = getPresidentFactFromFile();
 		for (President presidents : presArray) {
 			president.put(presidents.getTermNumber(), presidents);
@@ -57,17 +74,17 @@ public class PresDAOImpl implements PresDAO {
 	}
 	
 	@Override
-	public President getPresidentByTerm(Integer term) throws Exception {
+	public President getPresidentByTerm(Integer term) {
 		Map<Integer, President> presTerm = getHashMapFromArrayList();
 		return presTerm.get(term);
 	}
 
 
 	@Override
-	public List<String> getPicturePath() throws Exception {
+	public List<String> getPicturePath() {
 		List<President> presArray = loadPresidentsFromFile();
 		List<String> presidents = new ArrayList<>();
-		BufferedReader pres = new BufferedReader(new FileReader(path));
+		try (BufferedReader pres = new BufferedReader(new InputStreamReader(path))) {
 		String line;
 		while ((line = pres.readLine()) != null) {
 			String[] input = line.split("\\r");
@@ -76,7 +93,9 @@ public class PresDAOImpl implements PresDAO {
 		for (int i = 0; i < presArray.size() & i < presidents.size(); i++) {
 			presArray.get(i).setPhoto(presidents.get(i));
 		}
-		pres.close();
+		} catch (IOException e){
+			System.out.println(e);
+		}
 		return presidents;
 	}
 
