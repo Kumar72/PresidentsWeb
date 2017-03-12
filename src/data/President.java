@@ -28,9 +28,14 @@ public class President {
 		builder.append(party);
 		builder.append(", termYear=");
 		builder.append(termYear);
+		builder.append(", fact=");
+		builder.append(fact);
+		builder.append(", photo=");
+		builder.append(photo);
 		builder.append("]");
 		return builder.toString();
 	}
+	
 	
 	public String getFact() {
 		return fact;
