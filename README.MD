@@ -62,4 +62,4 @@ if (back != null) {
             </div>
 ```
 ###Chart of responsibilities
-<img src="WebContent/PresPics/chart.png" height="350">
+<img src="WebContent/PresPics/chart.png" height="400">
