@@ -7,12 +7,13 @@ A Java webapp that displays information on presidents of the United States based
 
 ## How to Execute
 - The webapp is hosted on: insert URL here
-- Download the entire program at this repository
+- Download the entire program as a .war [file](#)
 
 ## Instructions
 1. User arrives on landing page.
-2. User can select president based on term # or by selecting the navigation arrow.
+2. User can select president based on term #
 3. Information is displayed on chosen president.
+4. User can navigate forwards or backwards. 
 
 ## Class Structure Overview
 - The **PresServlet** class is the controller and interacts with the **PresDAOImpl** class which implements methods declared in the **PresDAO** class. The president object and hash map objects are constructed using information from the **President** class.

@@ -47,8 +47,13 @@ img {
     height: 300px;
 }
 
+#row1{
+	text-align: center;	
+}
+
 .card {
-    margin: 0 100px;
+	margin:0 auto;
+	width: 20rem;
     text-align: left;
 }
 
@@ -62,10 +67,12 @@ img {
 }
 
 .card li h1, .card li h3{
+	font-size:22px;
     color: white;
     background-color: #8f0a0a;
     margin: 0 0;
-    padding: 0 0;
+    padding: 5px 5px;
+    text-align:center;
 }
 
 .portrait {

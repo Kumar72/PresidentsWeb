@@ -15,10 +15,13 @@ import data.President;
 
 public class PresServlet extends HttpServlet {
 	private PresDAOImpl start;
-	
+
 	@Override
 	public void init() throws ServletException {
-		ServletContext context = getServletContext(); //instantiate ServletContext to allow access to WebContent
+		ServletContext context = getServletContext(); // instantiate
+														// ServletContext to
+														// allow access to
+														// WebContent
 		start = new PresDAOImpl(context);
 		// start instantiation of main data object and rest of operations
 	}
@@ -28,7 +31,54 @@ public class PresServlet extends HttpServlet {
 		List<President> data = new ArrayList<>();
 		data = start.getPicturePath();
 		req.setAttribute("presData", data);
-		req.getRequestDispatcher("/display.jsp").forward(req, resp);
+
+		String back = req.getParameter("back");
+		String next = req.getParameter("next");
+		String id = req.getParameter("id");
+		int term2 = 0;
+		System.out.println(back);
+		System.out.println(id);
+		try {
+			int term = Integer.parseInt(id);
+			if (back != null) {
+				try {
+					term2 = term - 2;
+					if (term2 == 1) {
+						term = 44;
+					}
+					req.setAttribute("id", id);
+					req.setAttribute("presData", data);
+					req.setAttribute("term", term2);
+					req.getRequestDispatcher("/Output.jsp").forward(req, resp);
+				} catch (Exception e) {
+					req.setAttribute("presData", data);
+					req.setAttribute("term", term2);
+					req.getRequestDispatcher("/Output.jsp").forward(req, resp);
+				}
+			} else if (next != null) {
+				try {
+					term2 = term + 2;
+					if (term2 == 44) {
+						term = 0;
+					}
+					req.setAttribute("id", id);
+					req.setAttribute("presData", data);
+					req.setAttribute("term", term2);
+					req.getRequestDispatcher("/Output.jsp").forward(req, resp);
+				} catch (Exception e) {
+					req.setAttribute("id", id);
+					req.setAttribute("presData", data);
+					req.setAttribute("term", term2);
+					req.getRequestDispatcher("/Output.jsp").forward(req, resp);
+				}
+			}
+			else{
+				req.getRequestDispatcher("/display.jsp").forward(req, resp); 
+				}
+		} catch (Exception e) {
+			System.out.println(e);
+			req.getRequestDispatcher("/display.jsp").forward(req, resp); 
+		} 
 	}
 
 	@Override
@@ -38,9 +88,6 @@ public class PresServlet extends HttpServlet {
 		Integer term = Integer.parseInt(req.getParameter("presNum"));
 		req.setAttribute("presData", data);
 		req.setAttribute("term", term);
-		req.getRequestDispatcher("/Output.jsp").forward(req, resp);	
+		req.getRequestDispatcher("/Output.jsp").forward(req, resp);
 	}
-	
-	
-
 }
