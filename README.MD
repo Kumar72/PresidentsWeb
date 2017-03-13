@@ -20,11 +20,16 @@ A collaborative Java web-app developed with eclipse that displays information on
 - The **PresServlet** class is the controller and interacts with the **PresDAOImpl** class which implements methods declared in the **PresDAO** interface. The president object and list objects are constructed using information from the **President** class and accompanying .txt and .csv files.
 - The **PresServlet** provides information back through a **.jsp** file for the user to view and chooses what president's information (name, term years, picture, facts, etc.) will be displayed based upon if-logic located in the servlet that evaluates user navigation in put.
 
-***example of back-button***
-```<a href="start.do?back=back&id=${presData[term-1].termNumber}">&#9756;</a>
+**example of back-button**
+
 ```
-***example of back-button logic on servlet***
-```if (back != null) {
+<a href="start.do?back=back&id=${presData[term-1].termNumber}">&#9756;</a>
+```
+
+**example of back-button logic on servlet**
+
+```
+if (back != null) {
 				try {
 					term2 = term - 1;
 					if (term == 1) {
@@ -37,13 +42,13 @@ A collaborative Java web-app developed with eclipse that displays information on
 				} catch (Exception e) {
 					req.setAttribute("presData", data);
 					req.setAttribute("term", term2);
-					req.getRequestDispatcher("/Output.jsp").forward(req, resp);
-				}
-                ```
+					req.getRequestDispatcher("/Output.jsp").forward(req, resp);}
+                    ```
 
 - The JavaServer Pages included references to stylesheets and the use of bootstrap which enables the use of the 'baseball-like' card format on unordered lists, which displays the president data.
 
-```<div class="card">
+```
+<div class="card">
                 <ul class="list-group list-group-flush">
                     <img class="portrait" src="./PresPics/${presData[term-1].photo}" alt="president pic">
                     <li><h1>${presData[term-1].firstName} ${presData[term-1].lastName}</h1></li>
