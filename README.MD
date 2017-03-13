@@ -4,13 +4,13 @@ A collaborative Java web-app developed with eclipse that displays information on
 <img src="WebContent/PresPics/scrn1.png" height="350">
 <img src="WebContent/PresPics/scrn2.png" height="350">
 
-## In This Document:
+## In This Document
 1. [How to Execute](#how-to-execute)
 2. [Class Structure Overview](#class-structure-overview)
 
 ## How to Execute
-- The web-app is hosted on: insert URL <a href="http://52.43.150.156:8080/PresidentsWeb/" target="_blank">**here**</a>
-- Download the entire program as a .war file <a href="PresidentsWeb.war" target="_blank">**here**</a>
+- The web-app is hosted on: insert URL <a href="http://52.43.150.156:8080/PresidentsWeb/">**here**</a>
+- Download the entire program as a .war file <a href="PresidentsWeb.war">**here**</a>
 
 ## Instructions
 1. User arrives on landing page.
@@ -61,3 +61,5 @@ if (back != null) {
                 </ul>
             </div>
 ```
+###Chart of responsibilities
+<img src="WebContent/PresPics/chart.png" height="350">
