@@ -43,7 +43,7 @@ if (back != null) {
 					req.setAttribute("presData", data);
 					req.setAttribute("term", term2);
 					req.getRequestDispatcher("/Output.jsp").forward(req, resp);}
-                    ```
+```
 
 - The JavaServer Pages included references to stylesheets and the use of bootstrap which enables the use of the 'baseball-like' card format on unordered lists, which displays the president data.
 
@@ -57,4 +57,4 @@ if (back != null) {
                     <li class="list-group-item">${presData[term-1].fact}</li>
                 </ul>
             </div>
-            ```
+```
