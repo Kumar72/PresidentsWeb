@@ -16,6 +16,7 @@ public class PresDAOImpl implements PresDAO {
 	private InputStream files;
 	private InputStream fact;
 	private InputStream path;
+	
 	private List<President> presArray = new ArrayList<>();
 	private HashMap<Integer, President> president = new HashMap<Integer, President>();
 	private ServletContext context;
@@ -79,6 +80,18 @@ public class PresDAOImpl implements PresDAO {
 			System.out.println(e);
 		}
 		return presArray;
+	}
+
+	@Override
+	public List<President> getPresByParty(String party) {
+			List<President> presParty = getPicturePath();
+			for (President president : presParty) {
+				if(president.getParty().equals(party)){
+					presParty.add(president);
+				}
+			}
+			
+		return presParty;
 	}
 
 }
