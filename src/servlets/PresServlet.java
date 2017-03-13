@@ -36,51 +36,53 @@ public class PresServlet extends HttpServlet {
 		String next = req.getParameter("next");
 		String id = req.getParameter("id");
 		int term2 = 0;
-//		System.out.println(back); to test output of buttons
-//		System.out.println(id);
-//		System.out.println(next);
+		// System.out.println(back); to test output of buttons
+		// System.out.println(id);
+		// System.out.println(next);
 		try {
-			int term = Integer.parseInt(id);
-			if (back != null) {
-				try {
-					term2 = term - 1;
-					if (term == 1) {
-						term2 = 45;
+			if (id != null && !"".equals(id)) {
+				int term = Integer.parseInt(id);
+				if (back != null) {
+					try {
+						term2 = term - 1;
+						if (term == 1) {
+							term2 = 45;
+						}
+						req.setAttribute("id", id);
+						req.setAttribute("presData", data);
+						req.setAttribute("term", term2);
+						req.getRequestDispatcher("/Output.jsp").forward(req, resp);
+					} catch (Exception e) {
+						req.setAttribute("presData", data);
+						req.setAttribute("term", term2);
+						req.getRequestDispatcher("/Output.jsp").forward(req, resp);
 					}
-					req.setAttribute("id", id);
-					req.setAttribute("presData", data);
-					req.setAttribute("term", term2);
-					req.getRequestDispatcher("/Output.jsp").forward(req, resp);
-				} catch (Exception e) {
-					req.setAttribute("presData", data);
-					req.setAttribute("term", term2);
-					req.getRequestDispatcher("/Output.jsp").forward(req, resp);
-				}
-			} else if (next != null) {
-				try {
-					term2 = term + 1;
-					if (term == 45) {
-						term2 = 1;
+				} else if (next != null) {
+					try {
+						term2 = term + 1;
+						if (term == 45) {
+							term2 = 1;
+						}
+						req.setAttribute("id", id);
+						req.setAttribute("presData", data);
+						req.setAttribute("term", term2);
+						req.getRequestDispatcher("/Output.jsp").forward(req, resp);
+					} catch (Exception e) {
+						req.setAttribute("presData", data);
+						req.setAttribute("term", term2);
+						req.getRequestDispatcher("/Output.jsp").forward(req, resp);
 					}
-					req.setAttribute("id", id);
-					req.setAttribute("presData", data);
-					req.setAttribute("term", term2);
-					req.getRequestDispatcher("/Output.jsp").forward(req, resp);
-				} catch (Exception e) {
-					req.setAttribute("presData", data);
-					req.setAttribute("term", term2);
-					req.getRequestDispatcher("/Output.jsp").forward(req, resp);
+				} else {
+					req.getRequestDispatcher("/display.jsp").forward(req, resp);
 				}
+			} else {
+				req.getRequestDispatcher("/display.jsp").forward(req, resp);
 			}
-			else{
-				req.getRequestDispatcher("/display.jsp").forward(req, resp); 
-				}
 		} catch (Exception e) {
 			System.out.println(e);
-			req.getRequestDispatcher("/display.jsp").forward(req, resp); 
+			req.getRequestDispatcher("/display.jsp").forward(req, resp);
 		}
-		
-		
+
 	}
 
 	@Override
@@ -90,7 +92,7 @@ public class PresServlet extends HttpServlet {
 		Integer term = Integer.parseInt(req.getParameter("presNum"));
 		req.setAttribute("presData", data);
 		req.setAttribute("term", term);
-		
+
 		req.getRequestDispatcher("/Output.jsp").forward(req, resp);
 	}
 }
