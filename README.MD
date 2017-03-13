@@ -9,8 +9,8 @@ A collaborative Java web-app developed with eclipse that displays information on
 2. [Class Structure Overview](#class-structure-overview)
 
 ## How to Execute
-- The web-app is hosted on: insert URL here
-- Download the entire program as a .war file <a href="http://52.43.150.156:8080/PresidentsWeb/" target="_blank">**here**</a>
+- The web-app is hosted on: insert URL <a href="http://52.43.150.156:8080/PresidentsWeb/" target="_blank">**here**</a>
+- Download the entire program as a .war file <a href="PresidentsWeb/PresidentsWeb.war" target="_blank">**here**</a>
 
 ## Instructions
 1. User arrives on landing page.
