@@ -31,6 +31,7 @@ public class PresServlet extends HttpServlet {
 		List<President> data = new ArrayList<>();
 		data = start.getPicturePath();
 		req.setAttribute("presData", data);
+
 		String back = req.getParameter("back");
 		String next = req.getParameter("next");
 		String id = req.getParameter("id");
@@ -70,14 +71,16 @@ public class PresServlet extends HttpServlet {
 					req.setAttribute("term", term2);
 					req.getRequestDispatcher("/Output.jsp").forward(req, resp);
 				}
-			} 
+			}
 			else{
 				req.getRequestDispatcher("/display.jsp").forward(req, resp); 
 				}
 		} catch (Exception e) {
 			System.out.println(e);
 			req.getRequestDispatcher("/display.jsp").forward(req, resp); 
-		}		
+		}
+		
+		
 	}
 
 	@Override

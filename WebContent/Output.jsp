@@ -20,7 +20,7 @@
 <body>
 
 	<div id="output-main" class="container-fluid">
-		<div class="row" id="radios">
+		<!-- <div class="row" id="radios">
 			<div class="col-md-4" id="filter">
 			<form class="form" action="filter.do" method="post">
 					<select name="presFilter" class="custom-select">
@@ -32,7 +32,7 @@
 					</select> <input class="btn btn-primary" type="submit" name="filter" value="Filter">
 				</form>
 			</div>
-		</div>
+		</div> -->
 		<div class="row" id="row1">
 			<a href="display.jsp"><h1>Main Menu</h1></a>
 		</div>
