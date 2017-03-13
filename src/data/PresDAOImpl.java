@@ -83,46 +83,47 @@ public class PresDAOImpl implements PresDAO {
 	@Override
 	public List<President> getPresByParty(int party) {
 		List<President> presParty = getPicturePath();
+		List<President> filteredParty = new ArrayList<>();
 		switch (party) {
 		case 1:
 			for (President president : presParty) {
-				if (president.getParty().equals("Republican")) {
-					presParty.add(president);
+				if (president.getParty().equals(" Republican")) {
+					filteredParty.add(president);
 				}
 			}
 			break;
 		case 2:
 			for (President president : presParty) {
-				if (president.getParty().equals("Democrat")) {
-					presParty.add(president);
+				if (president.getParty().equals(" Democrat")) {
+					filteredParty.add(president);
 				}
 			}
 			break;
 		case 3:
 			for (President president : presParty) {
-				if (president.getParty().equals("Democratic-Republican")) {
-					presParty.add(president);
+				if (president.getParty().equals(" Democratic-Republican")) {
+					filteredParty.add(president);
 				}
 			}
 			break;
 		case 4:
 			for (President president : presParty) {
-				if (president.getParty().equals("Independent")) {
-					presParty.add(president);
+				if (president.getParty().equals(" Independent")) {
+					filteredParty.add(president);
 				}
 			}
 			break;
 		case 5:
 			for (President president : presParty) {
-				if (president.getParty().equals("Whig")) {
-					presParty.add(president);
+				if (president.getParty().equals(" Whig")) {
+					filteredParty.add(president);
 				}
 			}
 			break;
 
 		}
 
-		return presParty;
+		return filteredParty;
 	}
 
 }
