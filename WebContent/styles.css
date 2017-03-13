@@ -51,21 +51,18 @@ img {
 	text-align: center;	
 }
 
-.card {
-	margin:0 auto;
-	width: 30rem;
-    text-align: left;
-    align-items: content;
-}
-
 .card ul {
     min-width: 400px;
+	width: 30rem;
+	margin:0 auto;
+    text-align: left;
+    
 }
 
 .card li {
     list-style-type: none;
     color: black;
-    font-size: 18px;
+    font-size: 18px;    
 }
 
 .card li h1, .card li h3{
