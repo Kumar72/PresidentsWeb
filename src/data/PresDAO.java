@@ -6,6 +6,6 @@ public interface PresDAO {
 	
 	public List<President> loadPresidentsFromFile();
 	public List<President>getPicturePath();
-	public List<President>getPresByParty(String party);
+	public List<President>getPresByParty(int party);
 		
 }

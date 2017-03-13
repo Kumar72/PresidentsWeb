@@ -11,17 +11,16 @@ import java.util.Map;
 
 import javax.servlet.ServletContext;
 
-
 public class PresDAOImpl implements PresDAO {
 	private InputStream files;
 	private InputStream fact;
 	private InputStream path;
-	
+
 	private List<President> presArray = new ArrayList<>();
 	private HashMap<Integer, President> president = new HashMap<Integer, President>();
 	private ServletContext context;
-	
-	public PresDAOImpl(ServletContext context){
+
+	public PresDAOImpl(ServletContext context) {
 		this.context = context;
 		files = context.getResourceAsStream("presidents.csv");
 		fact = context.getResourceAsStream("PresidentFact.txt");
@@ -31,66 +30,98 @@ public class PresDAOImpl implements PresDAO {
 	@Override
 	public List<President> loadPresidentsFromFile() {
 		try (BufferedReader pres = new BufferedReader(new InputStreamReader(files))) {
-		String line = "";
-		while ((line = pres.readLine()) != null) {
-			String[] input = line.split(",");
-			int term = Integer.parseInt(input[0]);
-			String firstName = input[1];
-			String middleName = input[2];
-			String lastName = input[3];
-			String termYears = input[4];
-			String party = input[5];
-			presArray.add(new President(term, firstName, middleName, lastName, termYears, party));
-		}} catch (IOException e) {
+			String line = "";
+			while ((line = pres.readLine()) != null) {
+				String[] input = line.split(",");
+				int term = Integer.parseInt(input[0]);
+				String firstName = input[1];
+				String middleName = input[2];
+				String lastName = input[3];
+				String termYears = input[4];
+				String party = input[5];
+				presArray.add(new President(term, firstName, middleName, lastName, termYears, party));
+			}
+		} catch (IOException e) {
 			System.out.println(e);
 		}
 		return presArray;
 	}
-
-	
 
 	@Override
 	public List<President> getPicturePath() {
 		List<President> presArray = loadPresidentsFromFile();
 		List<String> facts = new ArrayList<>();
-		try (BufferedReader pres = new BufferedReader(new InputStreamReader(fact))){
-		String line;
-		while ((line = pres.readLine()) != null) {
-			String[] input = line.split("\\r");
-			facts.add(input[0]);
-		}
-		for (int i = 0; i < presArray.size() & i < facts.size(); i++) {
-			presArray.get(i).setFact(facts.get(i));
-		}
+		try (BufferedReader pres = new BufferedReader(new InputStreamReader(fact))) {
+			String line;
+			while ((line = pres.readLine()) != null) {
+				String[] input = line.split("\\r");
+				facts.add(input[0]);
+			}
+			for (int i = 0; i < presArray.size() & i < facts.size(); i++) {
+				presArray.get(i).setFact(facts.get(i));
+			}
 		} catch (IOException e) {
 			System.out.println(e);
 		}
 		List<String> photo = new ArrayList<>();
 		try (BufferedReader pres = new BufferedReader(new InputStreamReader(path))) {
-		String line;
-		while ((line = pres.readLine()) != null) {
-			String[] input = line.split("\\r");
-			photo.add(input[0]);
-		}
-		for (int i = 0; i < presArray.size() & i < photo.size(); i++) {
-			
-			presArray.get(i).setPhoto(photo.get(i));
-		}
-		} catch (IOException e){
+			String line;
+			while ((line = pres.readLine()) != null) {
+				String[] input = line.split("\\r");
+				photo.add(input[0]);
+			}
+			for (int i = 0; i < presArray.size() & i < photo.size(); i++) {
+
+				presArray.get(i).setPhoto(photo.get(i));
+			}
+		} catch (IOException e) {
 			System.out.println(e);
 		}
 		return presArray;
 	}
 
 	@Override
-	public List<President> getPresByParty(String party) {
-			List<President> presParty = getPicturePath();
+	public List<President> getPresByParty(int party) {
+		List<President> presParty = getPicturePath();
+		switch (party) {
+		case 1:
 			for (President president : presParty) {
-				if(president.getParty().equals(party)){
+				if (president.getParty().equals("Republican")) {
 					presParty.add(president);
 				}
 			}
-			
+			break;
+		case 2:
+			for (President president : presParty) {
+				if (president.getParty().equals("Democrat")) {
+					presParty.add(president);
+				}
+			}
+			break;
+		case 3:
+			for (President president : presParty) {
+				if (president.getParty().equals("Democratic-Republican")) {
+					presParty.add(president);
+				}
+			}
+			break;
+		case 4:
+			for (President president : presParty) {
+				if (president.getParty().equals("Independent")) {
+					presParty.add(president);
+				}
+			}
+			break;
+		case 5:
+			for (President president : presParty) {
+				if (president.getParty().equals("Whig")) {
+					presParty.add(president);
+				}
+			}
+			break;
+
+		}
+
 		return presParty;
 	}
 
