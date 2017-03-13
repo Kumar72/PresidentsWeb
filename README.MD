@@ -1,8 +1,8 @@
 # Summary
 A collaborative Java web-app developed with eclipse that displays information on presidents of the United States based on user input.
 
-![Screenshot of display.jsp](.WebContent/PresPics/scrn1.png)
-![Screenshot of Output.jsp](.WebContent/PresPics/scrn2.png)
+![Screenshot of display.jsp](WebContent/PresPics/scrn1.png)
+![Screenshot of Output.jsp](WebContent/PresPics/scrn2.png)
 
 ## In This Document:
 1. [How to Execute](#how-to-execute)
