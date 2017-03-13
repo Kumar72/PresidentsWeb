@@ -10,7 +10,7 @@ A collaborative Java web-app developed with eclipse that displays information on
 
 ## How to Execute
 - The web-app is hosted on: insert URL here
-- Download the entire program as a .war [file](#)
+- Download the entire program as a .war file <a href="http://52.43.150.156:8080/PresidentsWeb/" target="_blank">**here**</a>
 
 ## Instructions
 1. User arrives on landing page.
