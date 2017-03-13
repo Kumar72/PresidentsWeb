@@ -78,7 +78,9 @@ public class PresServlet extends HttpServlet {
 		} catch (Exception e) {
 			System.out.println(e);
 			req.getRequestDispatcher("/display.jsp").forward(req, resp); 
-		} 
+		}
+		
+		
 	}
 
 	@Override
@@ -88,6 +90,7 @@ public class PresServlet extends HttpServlet {
 		Integer term = Integer.parseInt(req.getParameter("presNum"));
 		req.setAttribute("presData", data);
 		req.setAttribute("term", term);
+		
 		req.getRequestDispatcher("/Output.jsp").forward(req, resp);
 	}
 }
