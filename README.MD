@@ -13,8 +13,9 @@ A Java webapp that displays information on presidents of the United States based
 1. User arrives on landing page.
 2. User can select president based on term #
 3. Information is displayed on chosen president.
-4. User can navigate forwards or backwards. 
+4. User can navigate forwards or backwards. When user gets to the end or the beginning, arrows will take them back to the other end.
+5. User can also click on 'Go Back' to get back to dropdown menu.
 
 ## Class Structure Overview
-- The **PresServlet** class is the controller and interacts with the **PresDAOImpl** class which implements methods declared in the **PresDAO** class. The president object and hash map objects are constructed using information from the **President** class.
+- The **PresServlet** class is the controller and interacts with the **PresDAOImpl** class which implements methods declared in the **PresDAO** interface. The president object and list objects are constructed using information from the **President** class and accompanying .txt and .csv files.
 - The **PresServlet** provides information back through a **.jsp** file for the user to view.

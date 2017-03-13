@@ -36,15 +36,16 @@ public class PresServlet extends HttpServlet {
 		String next = req.getParameter("next");
 		String id = req.getParameter("id");
 		int term2 = 0;
-		System.out.println(back);
-		System.out.println(id);
+//		System.out.println(back); to test output of buttons
+//		System.out.println(id);
+//		System.out.println(next);
 		try {
 			int term = Integer.parseInt(id);
 			if (back != null) {
 				try {
-					term2 = term - 2;
-					if (term2 == 1) {
-						term = 44;
+					term2 = term - 1;
+					if (term == 1) {
+						term2 = 45;
 					}
 					req.setAttribute("id", id);
 					req.setAttribute("presData", data);
@@ -57,16 +58,15 @@ public class PresServlet extends HttpServlet {
 				}
 			} else if (next != null) {
 				try {
-					term2 = term + 2;
-					if (term2 == 44) {
-						term = 0;
+					term2 = term + 1;
+					if (term == 45) {
+						term2 = 1;
 					}
 					req.setAttribute("id", id);
 					req.setAttribute("presData", data);
 					req.setAttribute("term", term2);
 					req.getRequestDispatcher("/Output.jsp").forward(req, resp);
 				} catch (Exception e) {
-					req.setAttribute("id", id);
 					req.setAttribute("presData", data);
 					req.setAttribute("term", term2);
 					req.getRequestDispatcher("/Output.jsp").forward(req, resp);
